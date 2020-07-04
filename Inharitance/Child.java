@@ -8,6 +8,7 @@ public class Child extends Parent {
     }
 
     void display(){
+        System.out.println("From Child Class");
         System.out.println("a: "+this.a+"\nb: "+this.b);
     }
 }
