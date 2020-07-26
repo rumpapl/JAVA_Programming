@@ -1,0 +1,45 @@
+
+class SingleThread extends Thread{
+    public void run(){
+        for (int i =0; i<5; i++){
+            System.out.print("Threads using Inharitance 1: ");
+           System.out.println(i);
+        }
+        
+    }
+}
+
+class SingleThread1 extends Thread{
+    public void run(){
+        System.out.println("Peint this Before JVM shutdown: ");
+        for (int i =5; i>0; i--){
+           System.out.println(i);
+        }
+        
+    }
+}
+
+class SingleThread3 extends Thread{
+    public void run(){
+        for (int i =0; i<5; i++){
+            System.out.print("Threads using Inharitance 2: ");
+           System.out.println(i);
+        }
+        
+    }
+}
+
+public class HelloWorld{
+
+     public static void main(String []args){
+         
+        Runtime runtime = Runtime.getRuntime();
+        runtime.addShutdownHook(new SingleThread3());
+        SingleThread s = new SingleThread();
+        s.start();
+        
+        SingleThread1 s1 = new SingleThread1();
+        s1.run();
+        
+     }
+}
